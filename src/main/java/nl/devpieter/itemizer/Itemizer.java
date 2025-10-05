@@ -17,6 +17,7 @@ import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import nl.devpieter.itemizer.item.modifiers.IDualWieldable;
 import nl.devpieter.itemizer.listeners.CustomItemListener;
+import nl.devpieter.itemizer.listeners.DecayableBlockListener;
 import nl.devpieter.itemizer.listeners.ResurrectableItemListener;
 import nl.devpieter.itemizer.listeners.ShootableItemListener;
 import nl.devpieter.itemizer.managers.ItemManager;
@@ -109,6 +110,7 @@ public final class Itemizer extends JavaPlugin {
         this.logger.info("Registering listeners");
         PluginManager manager = this.getServer().getPluginManager();
         manager.registerEvents(new CustomItemListener(), this);
+        manager.registerEvents(new DecayableBlockListener(), this);
         manager.registerEvents(new ResurrectableItemListener(), this);
 
         ShootableItemListener shootableItemListener = new ShootableItemListener();
